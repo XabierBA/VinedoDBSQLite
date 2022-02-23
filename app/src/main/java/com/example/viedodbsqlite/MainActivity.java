@@ -13,6 +13,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConexiónSQLite conn = new ConexiónSQLite(this,"bd_vinedo", null,1);
     }
 }
