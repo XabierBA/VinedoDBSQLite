@@ -6,11 +6,11 @@ public class Ano {
 
     public int Ano;
 
-    public int ID_Vina;
+    public int vina;
 
-    public Ano(int ID,int NAno, int Vina){
+    public Ano(int ID,int NAno, int ID_Vina){
         ID_Ano = ID;
-        ID_Vina = Vina;
+        vina = ID_Vina;
         Ano = NAno;
     }
 
@@ -23,11 +23,11 @@ public class Ano {
     }
 
     public int getID_Vina() {
-        return ID_Vina;
+        return vina;
     }
 
     public void setID_Vina(int ID_Vina) {
-        this.ID_Vina = ID_Vina;
+        this.vina = ID_Vina;
     }
 
     public int getAno() {
