@@ -13,7 +13,7 @@ public class AnoContracts {
         public static final String ANO = "ano";
         public static final String ID_VINA = "ID_Vina";
 
-        public final static String CREATE_TABLE_ANO="CREATE TABLE "+ TABLE_NAME + "("+
+        public final static String CREATE_TABLE_ANO = "CREATE TABLE "+ TABLE_NAME + "("+
                 ID_ANO + " PRIMARY KEY AUTOINCREMENT, " +
                 ANO+ " INTEGER, "+
                 ID_VINA+ " INTEGER," +

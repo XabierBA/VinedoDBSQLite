@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.viedodbsqlite.Data.Contracts.AnoContracts;
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
@@ -28,5 +29,15 @@ public class MainActivity extends AppCompatActivity {
         */
 
 
+    }
+    public void onClick(View view){
+        registrarUsuarios();
+    }
+
+    private void registrarUsuarios() {
+        ConexiónSQLite conn = new ConexiónSQLite(getApplicationContext());
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        //ContentValues
     }
 }
