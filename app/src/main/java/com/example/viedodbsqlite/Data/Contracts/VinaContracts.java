@@ -5,8 +5,24 @@ import android.provider.BaseColumns;
 public class VinaContracts {
     private VinaContracts(){    }
     public static class VinaEntry implements BaseColumns{
-        public static final String TABLE_NAME = "vina";
+
+        //Campos constantes
+        public static final String TABLE_NAME = "vinas";
+        public static final String ID_COLUMN = "ID_Vina";
+        public static final String NOMBRE = "nombre";
+        public static final String N_CEPAS = "n_cepas";
+        public static final String EXTENSION = "extensión";
+        public static final String VARIEDAD = "variedad";
+
+        //Código de creación tabla
+        public final static String CREATE_TABLA_VINA="CREATE TABLE "+ TABLE_NAME + " ("+
+                ID_COLUMN+" PRIMARY KEY AUTOINCREMENT, " +
+                NOMBRE+" TEXT, " +
+                N_CEPAS+" INTEGER, " +
+                EXTENSION+" INTEGER, " +
+                VARIEDAD+" TEXT)";
 
     }
+
 
 }
