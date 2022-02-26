@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.viedodbsqlite.Data.Contracts.AnoContracts;
+import com.example.viedodbsqlite.Data.Contracts.MesContracts;
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 
 public class ConexiónSQLite extends SQLiteOpenHelper {
@@ -26,6 +27,7 @@ public class ConexiónSQLite extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(VinaContracts.VinaEntry.CREATE_TABLA_VINA);
         sqLiteDatabase.execSQL(AnoContracts.AnoEntry.CREATE_TABLE_ANO);
+        sqLiteDatabase.execSQL(MesContracts.MesEntry.CREATE_TABLA_MES);
     }
 
     @Override
