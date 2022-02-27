@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 
 import com.example.viedodbsqlite.Data.Contracts.AnoContracts;
 import com.example.viedodbsqlite.Data.Contracts.MesContracts;
+import com.example.viedodbsqlite.Data.Contracts.TareaContracts;
+import com.example.viedodbsqlite.Data.Contracts.UsuarioContracts;
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 
 public class ConexiónSQLite extends SQLiteOpenHelper {
@@ -28,12 +30,17 @@ public class ConexiónSQLite extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(VinaContracts.VinaEntry.CREATE_TABLA_VINA);
         sqLiteDatabase.execSQL(AnoContracts.AnoEntry.CREATE_TABLE_ANO);
         sqLiteDatabase.execSQL(MesContracts.MesEntry.CREATE_TABLA_MES);
+        sqLiteDatabase.execSQL(TareaContracts.TareaEntry.CREATE_TABLA_TAREAS);
+        sqLiteDatabase.execSQL(UsuarioContracts.UsuarioEntry.CREATE_TABLE_USER);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int versionAntigua, int versionNueva) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS vina ");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS ano ");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS vinas ");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS anos ");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS meses");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tareas");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS usuarios");
         onCreate(sqLiteDatabase);
     }
 
