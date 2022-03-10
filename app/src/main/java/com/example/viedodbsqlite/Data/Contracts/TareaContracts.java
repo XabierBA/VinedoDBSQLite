@@ -19,17 +19,17 @@ public class TareaContracts {
 
         //Código de creación tabla
         public final static String CREATE_TABLA_TAREAS="CREATE TABLE "+ TABLE_NAME + " ("+
-                ID_COLUMN+" PRIMARY KEY AUTOINCREMENT, " +
-                TITLE+" TEXT "+
-                TIPO+" TEXT "+
-                CANTIDAD+" INTEGER "+
-                OBSERV+" TEXT "+
+                ID_COLUMN+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                TITLE+" TEXT, "+
+                TIPO+" TEXT, "+
+                CANTIDAD+" INTEGER, "+
+                OBSERV+" TEXT, "+
                 ANO+" INTEGER, "+
                 MES+" INTEGER, "+
                 ID_VINA+" INTEGER, " +
-                "FOREIGN KEY ("+ANO+") REFERENCES Ano("+ANO+")"+
-                "FOREIGN KEY ("+MES+") REFERENCES Mes("+MES+")"+
-                "FOREIGN KEY ("+ID_VINA+") REFERENCES Vina("+ID_VINA+")";
+                "FOREIGN KEY ("+ANO+") REFERENCES Ano("+ANO+"),"+
+                "FOREIGN KEY ("+MES+") REFERENCES Mes("+MES+"),"+
+                "FOREIGN KEY ("+ID_VINA+") REFERENCES Vina("+ID_VINA+"))";
 
     }
 }

@@ -14,9 +14,9 @@ public class UsuarioContracts {
         public static final String CONTRASEÑA = "passwd";
 
         public final static String CREATE_TABLE_USER = "CREATE TABLE "+ TABLE_NAME + "("+
-                ID_USER + " PRIMARY KEY AUTOINCREMENT, " +
+                ID_USER + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 NOMBRE+ " TEXT, "+
-                CONTRASEÑA+ " TEXT";
+                CONTRASEÑA+ " TEXT)";
 
     }
 }

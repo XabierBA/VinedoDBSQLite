@@ -14,7 +14,7 @@ public class AnoContracts {
         public static final String ID_VINA = "ID_Vina";
 
         public final static String CREATE_TABLE_ANO = "CREATE TABLE "+ TABLE_NAME + "("+
-                ID_ANO + " PRIMARY KEY AUTOINCREMENT, " +
+                ID_ANO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ANO+ " INTEGER, "+
                 ID_VINA+ " INTEGER," +
                 "FOREIGN KEY ("+ID_VINA+") REFERENCES Vina("+ID_VINA+"))";

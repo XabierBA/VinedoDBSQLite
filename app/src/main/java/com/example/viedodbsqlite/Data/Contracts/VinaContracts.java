@@ -16,7 +16,7 @@ public class VinaContracts {
 
         //Código de creación tabla
         public final static String CREATE_TABLA_VINA="CREATE TABLE "+ TABLE_NAME + " ("+
-                ID_COLUMN+" PRIMARY KEY AUTOINCREMENT, " +
+                ID_COLUMN+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 NOMBRE+" TEXT, " +
                 N_CEPAS+" INTEGER, " +
                 EXTENSION+" INTEGER, " +
