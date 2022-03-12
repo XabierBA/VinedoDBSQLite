@@ -1,6 +1,9 @@
 package com.example.viedodbsqlite.Data.Contracts;
 
+import android.content.Context;
 import android.provider.BaseColumns;
+
+import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 
 public class VinaContracts {
     private VinaContracts(){    }

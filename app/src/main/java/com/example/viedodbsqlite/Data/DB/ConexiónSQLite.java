@@ -14,7 +14,7 @@ import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 
 public class ConexiónSQLite extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NOMBRE = "db_vinedo";
 
     public ConexiónSQLite(@Nullable Context context){
@@ -43,5 +43,10 @@ public class ConexiónSQLite extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS usuarios");
         onCreate(sqLiteDatabase);
     }
+    public void RESTART_TABLE_USERS(SQLiteDatabase sqLiteDatabase){
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS usuarios");
+        sqLiteDatabase.execSQL(UsuarioContracts.UsuarioEntry.CREATE_TABLE_USER);
+    }
+
 
 }
