@@ -6,133 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/etcontr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="9dp"
         android:layout_marginTop="32dp"
-        android:text="GESTION USUARIOS"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginEnd="90dp"
+        android:hint="Contraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvcontra"
+        app:layout_constraintTop_toBottomOf="@+id/etnombre" />
 
     <EditText
-        android:id="@+id/nombre"
+        android:id="@+id/etnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="116dp"
         android:hint="Nombre"
-        app:layout_constraintBottom_toTopOf="@+id/contr"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvnombre"
+        app:layout_constraintTop_toBottomOf="@+id/tabSelec" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txvcontra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="46dp"
         android:text="Contraseña: "
         android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/contr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="120dp"
-        android:hint="Contraseña"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <EditText
-        android:id="@+id/id_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:hint="ID UPDATE"
-        app:layout_constraintBottom_toTopOf="@+id/update"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txvnombre" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txvnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="352dp"
         android:text="Nombre: "
         android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
-        android:id="@+id/insert"
+        android:id="@+id/btnregist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="312dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="120dp"
         android:onClick="onClick"
         android:text="INSERT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/actualizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="140dp"
-        android:onClick="onClick"
-        android:text="SELECT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/insert"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/limpiar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="248dp"
-        android:onClick="onClick"
-        android:text="DELETE"
-        app:layout_constraintStart_toEndOf="@+id/actualizar"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="12dp"
-        android:onClick="onClick"
-        android:text="UPDATE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/limpiar"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/salida"
-        android:layout_width="388dp"
-        android:layout_height="292dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="59dp"
-
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="126dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btninit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="60dp"
+        android:onClick="onClick"
+        android:text="INSERT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabSelec"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insert"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabInit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INICIAR SESIÓN" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabRegist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REGISTRARSE" />
+
+    </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
