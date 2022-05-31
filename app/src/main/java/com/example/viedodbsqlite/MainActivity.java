@@ -17,35 +17,24 @@ import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 public class MainActivity extends AppCompatActivity {
     ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
-
 
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.insert:
+            case R.id.register:
                 registrarUsuarios();
                 break;
-            case R.id.actualizar:
-                consultarUsuarios();
-                break;
-            case R.id.limpiar:
-                limpiarUsuarios();
-                break;
-            case R.id.update:
-                updateUsuarios();
-                break;
-        }
 
+            /*case R.id.update:
+                updateUsuarios();
+                break;*/
+        }
     }
+
 
     private void registrarUsuarios() {
 
@@ -61,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
         Long idResultante = db.insert(UsuarioContracts.UsuarioEntry.TABLE_NAME, UsuarioContracts.UsuarioEntry.ID_USER,values);
         Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante, Toast.LENGTH_SHORT).show();
-
     }
-    private void consultarUsuarios() {
+
+
+    /*private void consultarUsuarios() {
 
         SQLiteDatabase db = conn.getReadableDatabase();
 
@@ -81,14 +71,10 @@ public class MainActivity extends AppCompatActivity {
         while(cursor.moveToNext()){
             salida.append("\n" + "ID: " + cursor.getString(0) + " ||  NOMBRE: " + cursor.getString(1) + " ||  CONTRASEÑA: " + cursor.getString(2));
             };
+    }*/
 
 
-
-
-
-
-    }
-    private void updateUsuarios(){
+   /* private void updateUsuarios(){
 
         SQLiteDatabase db = conn.getWritableDatabase();
 
@@ -104,14 +90,14 @@ public class MainActivity extends AppCompatActivity {
         values.put(UsuarioContracts.UsuarioEntry.CONTRASEÑA,contr.getText().toString());
 
         db.update(UsuarioContracts.UsuarioEntry.TABLE_NAME,values,UsuarioContracts.UsuarioEntry.ID_USER+" = ?",parametros);
+    }*/
 
-    }
 
-    private void limpiarUsuarios(){
+    /*private void limpiarUsuarios(){
         SQLiteDatabase db = conn.getWritableDatabase();
         conn.RESTART_TABLE_USERS(db);
 
         int idResultante = db.delete(UsuarioContracts.UsuarioEntry.TABLE_NAME,null,null);
         Toast.makeText(getApplicationContext(),"Id Delete: "+idResultante, Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }

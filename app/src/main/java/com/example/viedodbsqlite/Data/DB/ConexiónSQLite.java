@@ -11,6 +11,7 @@ import com.example.viedodbsqlite.Data.Contracts.MesContracts;
 import com.example.viedodbsqlite.Data.Contracts.TareaContracts;
 import com.example.viedodbsqlite.Data.Contracts.UsuarioContracts;
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
+import com.example.viedodbsqlite.Data.Tablas.Usuario;
 
 public class ConexiónSQLite extends SQLiteOpenHelper {
 
@@ -36,11 +37,11 @@ public class ConexiónSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int versionAntigua, int versionNueva) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS vinas ");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS anos ");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS meses");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tareas");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS usuarios");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+VinaContracts.VinaEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ AnoContracts.AnoEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ MesContracts.MesEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TareaContracts.TareaEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ UsuarioContracts.UsuarioEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
     public void RESTART_TABLE_USERS(SQLiteDatabase sqLiteDatabase){
