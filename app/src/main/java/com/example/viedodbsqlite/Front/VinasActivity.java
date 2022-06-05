@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -80,8 +79,8 @@ public class VinasActivity extends AppCompatActivity {
 
     public void onClick(View view){
         FragmentManager fm = getSupportFragmentManager();
-        InsertVinas insertVinas = InsertVinas.newInstance("Añadir Viñedos");
-        insertVinas.show(fm, "fragment_insert_vinas");
+        Diag diag = Diag.newInstance("Añadir Viñedos");
+        diag.show(fm, "fragment_insert_vinas");
 
     }
 
