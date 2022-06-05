@@ -14,6 +14,10 @@ public class Ano {
         Ano = NAno;
     }
 
+    public Ano(){
+
+    }
+
     public int getID_Ano() {
         return ID_Ano;
     }

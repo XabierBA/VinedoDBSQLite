@@ -53,8 +53,6 @@ public class VinasActivity extends AppCompatActivity {
 
         while(cursor.moveToNext()){
             vina = new Vina();
-            String text = cursor.getString(1);
-            Toast.makeText(this, ""+text, Toast.LENGTH_SHORT).show();
             vina.setNombre(cursor.getString(1));
             vina.setExtensión(cursor.getInt(2));
             vina.setN_cepas(cursor.getInt(3));

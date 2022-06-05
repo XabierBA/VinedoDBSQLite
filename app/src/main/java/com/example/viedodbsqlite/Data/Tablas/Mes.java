@@ -14,6 +14,10 @@ public class Mes {
             mes = nMes;
         }
 
+        public Mes(){
+
+        }
+
     public int getID_Mes() {
         return ID_Mes;
     }

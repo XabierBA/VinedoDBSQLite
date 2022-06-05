@@ -22,6 +22,10 @@ public class Tareas {
         vina = nvina;
     }
 
+    public Tareas(){
+
+    }
+
     public int getID_Tarea() {
         return ID_Tarea;
     }
