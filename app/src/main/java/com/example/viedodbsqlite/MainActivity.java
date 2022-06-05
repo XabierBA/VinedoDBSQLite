@@ -3,6 +3,7 @@ package com.example.viedodbsqlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,7 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.viedodbsqlite.Data.Contracts.UsuarioContracts;
+import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
+import com.example.viedodbsqlite.Data.Tablas.Usuario;
+import com.example.viedodbsqlite.Data.Tablas.Vina;
+import com.example.viedodbsqlite.Front.VinasActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
@@ -29,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
                 registrarUsuarios();
                 break;
 
-            /*case R.id.update:
-                updateUsuarios();
-                break;*/
+            case R.id.login:
+                loginUsuarios();
+                break;
         }
     }
 
@@ -53,25 +60,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*private void consultarUsuarios() {
+    private void loginUsuarios() {
 
+        EditText nombre = findViewById(R.id.nombre);
+        EditText contr = findViewById(R.id.contr);
         SQLiteDatabase db = conn.getReadableDatabase();
-
-        TextView salida = findViewById(R.id.salida);
-        salida.setText("");
-
-        String id = UsuarioContracts.UsuarioEntry.ID_USER;
-        String nombre = UsuarioContracts.UsuarioEntry.NOMBRE;
-        String contr = UsuarioContracts.UsuarioEntry.CONTRASEÑA;
-        String[] campos = {id,nombre,contr};
+        ArrayList<Usuario> listaUsuarios;
+        String test;
         boolean flag = false;
+        listaUsuarios = new ArrayList<Usuario>();
 
-        Cursor cursor = db.query(UsuarioContracts.UsuarioEntry.TABLE_NAME,campos,null,null,null,null,null);
+        Cursor cursor = db.rawQuery("SELECT "+UsuarioContracts.UsuarioEntry.NOMBRE+", "+ UsuarioContracts.UsuarioEntry.CONTRASEÑA +" FROM "+ UsuarioContracts.UsuarioEntry.TABLE_NAME, null);
 
-        while(cursor.moveToNext()){
-            salida.append("\n" + "ID: " + cursor.getString(0) + " ||  NOMBRE: " + cursor.getString(1) + " ||  CONTRASEÑA: " + cursor.getString(2));
-            };
-    }*/
+        while(cursor.moveToNext() && flag == false){
+            if (nombre.getText().toString().equals(cursor.getString(0)) && contr.getText().toString().equals(cursor.getString(1))){
+                flag = true;
+            }
+        }
+        if(flag == true){
+            Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
+            Intent listaViñas = new Intent(this, VinasActivity.class);
+            startActivity(listaViñas);
+        }
+        else Toast.makeText(this, "Wrong user or password", Toast.LENGTH_SHORT).show();
+    }
 
 
    /* private void updateUsuarios(){

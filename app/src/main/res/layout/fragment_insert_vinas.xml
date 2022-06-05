@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/smooth"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Añadir viñedo"
+        android:textSize="40dp"
+        android:translationX="82dp"
+        android:textStyle="bold"
+        android:translationY="20dp"/>
+
+    <TextView
+        android:id="@+id/tvnombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del viñedo"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="150dp" />
+
+    <EditText
+        android:id="@+id/nombreVina"
+        android:layout_width="141dp"
+        android:layout_height="45dp"
+        android:translationX="50dp"
+        android:translationY="170dp"/>
+
+    <TextView
+        android:id="@+id/tvvaried"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Variedad"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="250dp"/>
+
+    <EditText
+        android:id="@+id/variedadVina"
+        android:layout_width="105dp"
+        android:layout_height="42dp"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="270dp"/>
+
+    <TextView
+        android:id="@+id/tvncepas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número de cepas"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="350dp"/>
+
+    <EditText
+        android:id="@+id/ncepas"
+        android:layout_width="105dp"
+        android:layout_height="42dp"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="370dp"/>
+
+    <TextView
+        android:id="@+id/tvextens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extensión en metros"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="450dp"/>
+
+    <EditText
+        android:id="@+id/extension"
+        android:layout_width="105dp"
+        android:layout_height="42dp"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="470dp"/>
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DC874532"
+        android:text="Cancelar"
+        android:onClick="onClick"
+        android:textSize="15dp"
+        android:translationX="50dp"
+        android:translationY="650dp"/>
+
+    <Button
+        android:id="@+id/insertVina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DC874532"
+        android:text="Añadir"
+        android:onClick="onClick"
+        android:textSize="15dp"
+        android:translationX="250dp"
+        android:translationY="650dp"/>
+
+</FrameLayout>

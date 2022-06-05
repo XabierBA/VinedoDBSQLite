@@ -23,6 +23,9 @@ public class Vina {
         ID_Vina = Vina;
     }
 
+    public Vina(){
+    }
+
     public int getID_Vina() {
         return ID_Vina;
     }
