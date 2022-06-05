@@ -3,6 +3,7 @@ package com.example.viedodbsqlite.Front;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -24,15 +25,27 @@ public class InsertVinas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_vinas);
     }
-    Button insert = findViewById(R.id.insertVina);
 
-    public void onClick(View view) {
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.insertVina:
+                insertVinas();
+                break;
+
+            case R.id.cancel:
+                Intent listaViñas = new Intent(this, VinasActivity.class);
+                startActivity(listaViñas);
+                break;
+        }
+    }
+
+    public void insertVinas() {
         SQLiteDatabase db = conn.getWritableDatabase();
 
-        EditText name = view.findViewById(R.id.nombreVina);
-        EditText variety = view.findViewById(R.id.variedadVina);
-        EditText ncepas = view.findViewById(R.id.ncepas);
-        EditText extension = view.findViewById(R.id.extension);
+        EditText name = findViewById(R.id.nombreVina);
+        EditText variety = findViewById(R.id.variedadVina);
+        EditText ncepas = findViewById(R.id.ncepas);
+        EditText extension = findViewById(R.id.extension);
 
         ContentValues values = new ContentValues();
         values.clear();

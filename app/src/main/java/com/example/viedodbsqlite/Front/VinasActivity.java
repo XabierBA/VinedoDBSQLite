@@ -1,5 +1,6 @@
 package com.example.viedodbsqlite.Front;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -78,9 +79,9 @@ public class VinasActivity extends AppCompatActivity {
     }
 
     public void onClick(View view){
-        FragmentManager fm = getSupportFragmentManager();
-        Diag diag = Diag.newInstance("Añadir Viñedos");
-        diag.show(fm, "fragment_insert_vinas");
+
+        Intent insertVinas = new Intent(this, InsertVinas.class);
+        startActivity(insertVinas);
 
     }
 
