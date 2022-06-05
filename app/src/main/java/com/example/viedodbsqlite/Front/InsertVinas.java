@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -46,43 +47,30 @@ public class InsertVinas extends DialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getDialog().getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        Button insert = view.findViewById(R.id.insertVina);
+        insert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SQLiteDatabase db = conn.getWritableDatabase();
+
+                EditText name = view.findViewById(R.id.nombreVina);
+                EditText variety = view.findViewById(R.id.variedadVina);
+                EditText ncepas = view.findViewById(R.id.ncepas);
+                EditText extension = view.findViewById(R.id.extension);
+
+                ContentValues values = new ContentValues();
+                values.clear();
+                values.put(VinaContracts.VinaEntry.NOMBRE,name.getText().toString());
+                values.put(VinaContracts.VinaEntry.VARIEDAD,variety.getText().toString());
+                values.put(VinaContracts.VinaEntry.EXTENSION,extension.getText().toString());
+                values.put(VinaContracts.VinaEntry.N_CEPAS,ncepas.getText().toString());
+
+
+                long id = db.insert(VinaContracts.VinaEntry.TABLE_NAME, VinaContracts.VinaEntry.ID_COLUMN,values);
+                Toast.makeText(getContext(), "Registro exitoso"+id, Toast.LENGTH_SHORT).show();
+            }
+        });{
+        };
     }
-
-    public void onClick(View view){
-        switch (view.getId()){
-            case R.id.insertVina:
-                insertVinas(view);
-                break;
-
-            case R.id.cancel:
-                ;
-                break;
-        }
-    }
-
-    public void insertVinas(View view){
-
-        SQLiteDatabase db = conn.getWritableDatabase();
-
-        EditText name = view.findViewById(R.id.nombreVina);
-        EditText variety = view.findViewById(R.id.variedadVina);
-        EditText ncepas = view.findViewById(R.id.ncepas);
-        EditText extension = view.findViewById(R.id.extension);
-
-        ContentValues values = new ContentValues();
-        values.clear();
-        values.put(VinaContracts.VinaEntry.NOMBRE,name.getText().toString());
-        values.put(VinaContracts.VinaEntry.VARIEDAD,variety.getText().toString());
-        values.put(VinaContracts.VinaEntry.EXTENSION,extension.getText().toString());
-        values.put(VinaContracts.VinaEntry.N_CEPAS,ncepas.getText().toString());
-
-
-        long id = db.insert(VinaContracts.VinaEntry.TABLE_NAME, VinaContracts.VinaEntry.ID_COLUMN,values);
-        Toast.makeText(getContext(), "Registro exitoso"+id, Toast.LENGTH_SHORT).show();
-
-    }
-
-
 }
