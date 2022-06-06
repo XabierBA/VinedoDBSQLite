@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -41,6 +42,17 @@ public class VinasActivity extends AppCompatActivity {
         ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaInfo);
         listViewVinas.setAdapter(adaptador);
 
+        listViewVinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int id_vina = listaVina.get(i).getID_Vina();
+
+                Intent anosList = new Intent(getApplicationContext(),AnosActivity.class);
+                anosList.putExtra("id_vina", id_vina);
+                startActivity(anosList);
+            }
+        });
+
     }
 
     private void consultarlistaVinas() {
@@ -52,7 +64,9 @@ public class VinasActivity extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT * FROM "+ VinaContracts.VinaEntry.TABLE_NAME, null);
 
         while(cursor.moveToNext()){
+
             vina = new Vina();
+            vina.setID_Vina(cursor.getInt(0));
             vina.setNombre(cursor.getString(1));
             vina.setExtensión(cursor.getInt(2));
             vina.setN_cepas(cursor.getInt(3));

@@ -36,6 +36,9 @@ public class AnosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anos);
 
+
+
+
         listViewAnos = (ListView) findViewById(R.id.listAnos);
         FloatingActionButton insertAnos = findViewById(R.id.addAnos);
         consultarlistaAnos();
@@ -50,7 +53,10 @@ public class AnosActivity extends AppCompatActivity {
 
         Ano ano = null;
         listaAno = new ArrayList<Ano>();
-        int id_vina = 1;
+
+        Intent listVinas = getIntent();
+        int id_vina = listVinas.getExtras().getInt("id_vina");
+
         Cursor cursor = db.rawQuery("SELECT * FROM "+ AnoContracts.AnoEntry.TABLE_NAME+" WHERE "+ AnoContracts.AnoEntry.ID_VINA+" = "+id_vina, null);
 
         while(cursor.moveToNext()){

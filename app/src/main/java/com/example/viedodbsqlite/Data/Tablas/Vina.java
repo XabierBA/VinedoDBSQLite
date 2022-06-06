@@ -46,6 +46,10 @@ public class Vina {
         return variedad;
     }
 
+    public void setID_Vina(int id_vina){
+        this.ID_Vina = id_vina;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
