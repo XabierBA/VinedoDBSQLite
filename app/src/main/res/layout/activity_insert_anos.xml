@@ -55,7 +55,7 @@
         android:layout_marginBottom="76dp"
         android:backgroundTint="#DC874532"
         android:onClick="onClick"
-        android:text="Cancelar"
+        android:text="Volver"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

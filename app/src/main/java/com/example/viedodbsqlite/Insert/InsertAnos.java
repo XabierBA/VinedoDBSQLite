@@ -13,14 +13,17 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.viedodbsqlite.Data.Contracts.AnoContracts;
+import com.example.viedodbsqlite.Data.Contracts.MesContracts;
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 import com.example.viedodbsqlite.Front.AnosActivity;
 import com.example.viedodbsqlite.Front.VinasActivity;
 import com.example.viedodbsqlite.R;
 
+import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
 public class InsertAnos extends AppCompatActivity {
@@ -50,7 +53,12 @@ public class InsertAnos extends AppCompatActivity {
                 break;
 
             case R.id.cancel:
+
+                Intent listVinas = getIntent();
+                int id_vina = listVinas.getExtras().getInt("id_vina");
+
                 Intent listaAnos = new Intent(this, AnosActivity.class);
+                listaAnos.putExtra("id_vina", id_vina);
                 startActivity(listaAnos);
                 break;
         }
@@ -71,6 +79,29 @@ public class InsertAnos extends AppCompatActivity {
 
 
         db.insert(AnoContracts.AnoEntry.TABLE_NAME, AnoContracts.AnoEntry.ID_ANO ,values);
-        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Registro exitoso: Año", Toast.LENGTH_SHORT).show();
+
+
+
+        List<String> mesesList = new ArrayList<String>();
+
+        String[] months = new DateFormatSymbols().getMonths();
+        for (int i = 0; i < months.length; i++) {
+            String month = months[i];
+            mesesList.add(months[i]);
+        }
+        for(int i = 0; i< mesesList.size(); i++){
+            values.clear();
+            values.put(MesContracts.MesEntry.MES, mesesList.get(i));
+            values.put(MesContracts.MesEntry.ID_VINA, id_vina);
+            values.put(MesContracts.MesEntry.ANO, ano.getSelectedItem().toString());
+
+            db.insert(MesContracts.MesEntry.TABLE_NAME, MesContracts.MesEntry.ID_COLUMN ,values);
+
+        }
+        Toast.makeText(this, "Registro exitoso: Mes", Toast.LENGTH_SHORT).show();
+
+
+
     }
 }

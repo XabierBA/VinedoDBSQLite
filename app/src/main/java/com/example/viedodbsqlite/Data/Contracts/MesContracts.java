@@ -16,7 +16,7 @@ public class MesContracts {
         //Código de creación tabla
         public final static String CREATE_TABLA_MES="CREATE TABLE "+ TABLE_NAME + " ("+
                 ID_COLUMN+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                MES+" INTEGER, " +
+                MES+" TEXT, " +
                 ANO+" INTEGER, " +
                 ID_VINA+" INTEGER, "+
                 "FOREIGN KEY ("+ID_VINA+") REFERENCES Vina("+ID_VINA+"),"+

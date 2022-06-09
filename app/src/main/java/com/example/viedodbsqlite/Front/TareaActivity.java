@@ -1,5 +1,7 @@
 package com.example.viedodbsqlite.Front;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,28 +10,24 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.viedodbsqlite.Data.Contracts.AnoContracts;
-import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
+import com.example.viedodbsqlite.Data.Contracts.MesContracts;
+import com.example.viedodbsqlite.Data.Contracts.TareaContracts;
 import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 import com.example.viedodbsqlite.Data.Tablas.Ano;
-import com.example.viedodbsqlite.Data.Tablas.Vina;
+import com.example.viedodbsqlite.Data.Tablas.Tareas;
 import com.example.viedodbsqlite.Insert.InsertAnos;
 import com.example.viedodbsqlite.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class AnosActivity extends AppCompatActivity {
+public class TareaActivity extends AppCompatActivity {
 
-    ListView listViewAnos;
+    ListView listViewTareas;
     ArrayList<String> listaInfo;
-    ArrayList<Ano> listaAno;
+    ArrayList<Tareas> listaTareas;
 
 
 
@@ -43,18 +41,18 @@ public class AnosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anos);
 
-        listViewAnos = (ListView) findViewById(R.id.listAnos);
+        listViewTareas = (ListView) findViewById(R.id.listAnos);
         FloatingActionButton insertAnos = findViewById(R.id.addAnos);
         consultarlistaAnos();
 
         ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaInfo);
-        listViewAnos.setAdapter(adaptador);
+        listViewTareas.setAdapter(adaptador);
 
-        listViewAnos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                int id_vina = listaAno.get(i).getID_Vina();
-                int id_ano = listaAno.get(i).getID_Ano();
+                int id_vina = listaTareas.get(i).getVina();
+                int id_ano = listaTareas.get(i).getAno();
 
                 Intent mesList = new Intent(getApplicationContext(),MesActivity.class);
                 mesList.putExtra("id_vina", id_vina);
@@ -68,36 +66,40 @@ public class AnosActivity extends AppCompatActivity {
 
     private void consultarlistaAnos() {
 
-        Intent listVinas = getIntent();
-        int id_vina = listVinas.getExtras().getInt("id_vina");
+        Intent listaTarea = getIntent();
+        int id_vina = listaTarea.getExtras().getInt("id_vina");
+        int id_ano = listaTarea.getExtras().getInt("id_ano");
+        int id_mes = listaTarea.getExtras().getInt("id_mes");
 
         SQLiteDatabase db = conn.getReadableDatabase();
 
-        Ano ano = null;
-        listaAno = new ArrayList<Ano>();
+        Tareas tareas = null;
+        listaTareas = new ArrayList<Tareas>();
 
 
 
-        Cursor cursor = db.rawQuery("SELECT * FROM "+ AnoContracts.AnoEntry.TABLE_NAME+" WHERE "+ AnoContracts.AnoEntry.ID_VINA+" = "+id_vina, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ TareaContracts.TareaEntry.TABLE_NAME
+                +" WHERE "+TareaContracts.TareaEntry.ID_VINA+" = "+id_vina+" and "
+                +TareaContracts.TareaEntry.ANO+" = "+id_ano+" and "
+                +TareaContracts.TareaEntry.MES+" = "+id_mes,
+                null);
 
-        while(cursor.moveToNext()){
-            ano = new Ano();
-            ano.setID_Ano(cursor.getInt(0));
-            ano.setAno(cursor.getInt(1));
-            ano.setID_Vina(cursor.getInt(2));
+        /*while(cursor.moveToNext()){
+            tarea = new Tareas();
+            tarea.setAno(cursor.getInt(1));
 
-            listaAno.add(ano)
-            ;
+
+            listaTarea.add(tarea);
         }
-        obtenerLista();
+        obtenerLista();*/
 
     }
 
     private void obtenerLista() {
         listaInfo = new ArrayList<String>();
 
-        for(int i = 0; i<listaAno.size(); i++){
-            listaInfo.add("|"+listaAno.get(i).getAno()+"|"+"\n");
+        for(int i = 0; i<listaTareas.size(); i++){
+            listaInfo.add("|"+listaTareas.get(i).getAno()+"|"+"\n");
 
         }
     }
@@ -105,7 +107,6 @@ public class AnosActivity extends AppCompatActivity {
     public void onClick(View view){
         Intent listVinas = getIntent();
         int id_vina = listVinas.getExtras().getInt("id_vina");
-
 
         Intent insertAnos = new Intent(this, InsertAnos.class);
         insertAnos.putExtra("id_vina", id_vina);

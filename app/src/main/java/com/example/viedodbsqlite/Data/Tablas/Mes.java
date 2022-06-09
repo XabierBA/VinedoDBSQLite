@@ -3,11 +3,11 @@ package com.example.viedodbsqlite.Data.Tablas;
 public class Mes {
 
         public int ID_Mes;
-        public int mes;
+        public String mes;
         public int ano;
         public int vina;
 
-        public Mes(int ID,int nMes, int Ano, int ID_Vina){
+        public Mes(int ID,String nMes, int Ano, int ID_Vina){
             ID_Mes = ID;
             vina = ID_Vina;
             ano = Ano;
@@ -26,11 +26,11 @@ public class Mes {
         this.ID_Mes = ID_Mes;
     }
 
-    public int getMes() {
+    public String getMes() {
         return mes;
     }
 
-    public void setMes(int mes) {
+    public void setMes(String mes) {
         this.mes = mes;
     }
 

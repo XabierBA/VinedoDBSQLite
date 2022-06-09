@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViñedoDBSQLite">
         <activity
+            android:name=".Insert.InsertTareas"
+            android:exported="false" />
+        <activity
+            android:name=".Front.TareaActivity"
+            android:exported="false" />
+        <activity
             android:name=".Front.MesActivity"
             android:exported="false" />
         <activity
