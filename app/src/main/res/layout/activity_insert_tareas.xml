@@ -4,6 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Insert.InsertTareas">
+    android:background="@drawable/smooth"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:text="Añadir tareas"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:translationX="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvtit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="74dp"
+        android:text="Título"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <EditText
+        android:id="@+id/titular"
+        android:layout_width="231dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvtit" />
+
+    <TextView
+        android:id="@+id/tvvaried"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="20dp"
+        android:text="Tipo"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titular" />
+
+    <EditText
+        android:id="@+id/tipo"
+        android:layout_width="231dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="67dp"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvvaried" />
+
+    <TextView
+        android:id="@+id/tvncepas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="23dp"
+        android:text="Cantidad"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipo" />
+
+    <EditText
+        android:id="@+id/cantidad"
+        android:layout_width="231dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvncepas" />
+
+    <TextView
+        android:id="@+id/tvextens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="37dp"
+        android:text="Observaviones"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cantidad" />
+
+    <EditText
+        android:id="@+id/observaciones"
+        android:layout_width="231dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="67dp"
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:minLines="1"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvextens" />
+
+    <Button
+        android:id="@+id/insertTareas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="80dp"
+        android:backgroundTint="#DC874532"
+        android:onClick="onClick"
+        android:text="Añadir"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observaciones" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="92dp"
+        android:backgroundTint="#DC874532"
+        android:onClick="onClick"
+        android:text="Volver"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observaciones" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,10 +39,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.login:
                 loginUsuarios();
                 break;
-
-            case R.id.resetDB:
-                limpiarDB();
-                break;
         }
     }
 
@@ -86,14 +82,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(listaViñas);
         }
         else Toast.makeText(this, "Wrong user or password", Toast.LENGTH_SHORT).show();
-    }
-
-
-    private void limpiarDB(){
-        SQLiteDatabase db = conn.getWritableDatabase();
-        conn.onUpgrade(db, 2, 3);
-
-        int idResultante = db.delete(UsuarioContracts.UsuarioEntry.TABLE_NAME,null,null);
-        Toast.makeText(getApplicationContext(),"Id Delete: "+idResultante, Toast.LENGTH_SHORT).show();
     }
 }

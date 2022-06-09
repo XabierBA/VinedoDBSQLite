@@ -50,11 +50,11 @@ public class MesActivity extends AppCompatActivity {
                 int id_ano = listaMes.get(i).getAno();
                 int id_mes = listaMes.get(i).getID_Mes();
 
-                Intent mesList = new Intent(getApplicationContext(),MesActivity.class);
-                mesList.putExtra("id_vina", id_vina);
-                mesList.putExtra("id_ano", id_ano);
-                mesList.putExtra("id_mes", id_mes);
-                startActivity(mesList);
+                Intent tareaList = new Intent(getApplicationContext(),TareaActivity.class);
+                tareaList.putExtra("id_vina", id_vina);
+                tareaList.putExtra("id_ano", id_ano);
+                tareaList.putExtra("id_mes", id_mes);
+                startActivity(tareaList);
             }
         });
     }
@@ -72,7 +72,10 @@ public class MesActivity extends AppCompatActivity {
 
         Cursor cursor = db.rawQuery("SELECT * FROM "+ MesContracts.MesEntry.TABLE_NAME+
                 " WHERE "+ MesContracts.MesEntry.ID_VINA+" = "+id_vina+
-                " and " + MesContracts.MesEntry.ANO+" = "+"(SELECT "+ AnoContracts.AnoEntry.ANO +" FROM "+ AnoContracts.AnoEntry.TABLE_NAME+" WHERE "+ AnoContracts.AnoEntry.ID_ANO +" = "+ id_ano+")", null);
+                " and " + MesContracts.MesEntry.ANO+" = "
+                +"(SELECT "+ AnoContracts.AnoEntry.ANO +" FROM "
+                + AnoContracts.AnoEntry.TABLE_NAME+" WHERE "
+                + AnoContracts.AnoEntry.ID_ANO +" = "+ id_ano+")", null);
 
         while(cursor.moveToNext()){
             mes = new Mes();

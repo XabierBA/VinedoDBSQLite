@@ -18,6 +18,7 @@ import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 import com.example.viedodbsqlite.Data.Tablas.Ano;
 import com.example.viedodbsqlite.Data.Tablas.Tareas;
 import com.example.viedodbsqlite.Insert.InsertAnos;
+import com.example.viedodbsqlite.Insert.InsertTareas;
 import com.example.viedodbsqlite.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -36,13 +37,11 @@ public class TareaActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState){
 
-
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anos);
+        setContentView(R.layout.activity_tarea);
 
-        listViewTareas = (ListView) findViewById(R.id.listAnos);
-        FloatingActionButton insertAnos = findViewById(R.id.addAnos);
+        listViewTareas = (ListView) findViewById(R.id.listTarea);
+        FloatingActionButton insertTareas = findViewById(R.id.addTarea);
         consultarlistaAnos();
 
         ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaInfo);
@@ -51,17 +50,20 @@ public class TareaActivity extends AppCompatActivity {
         listViewTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                int id_vina = listaTareas.get(i).getVina();
-                int id_ano = listaTareas.get(i).getAno();
+                int id_tarea = listaTareas.get(i).getID_Tarea();
+                Intent listaTarea = getIntent();
+                int id_vina = listaTarea.getExtras().getInt("id_vina");
+                int id_ano = listaTarea.getExtras().getInt("id_ano");
+                int id_mes = listaTarea.getExtras().getInt("id_mes");
 
-                Intent mesList = new Intent(getApplicationContext(),MesActivity.class);
-                mesList.putExtra("id_vina", id_vina);
-                mesList.putExtra("id_ano", id_ano);
-                startActivity(mesList);
+                Intent tareasList = new Intent(getApplicationContext(),TareasInfo.class);
+                tareasList.putExtra("id_tareas", id_tarea);
+                tareasList.putExtra("id_vina", id_vina);
+                tareasList.putExtra("id_ano", id_ano);
+                tareasList.putExtra("id_mes", id_mes);
+                startActivity(tareasList);
             }
         });
-
-
     }
 
     private void consultarlistaAnos() {
@@ -80,18 +82,24 @@ public class TareaActivity extends AppCompatActivity {
 
         Cursor cursor = db.rawQuery("SELECT * FROM "+ TareaContracts.TareaEntry.TABLE_NAME
                 +" WHERE "+TareaContracts.TareaEntry.ID_VINA+" = "+id_vina+" and "
-                +TareaContracts.TareaEntry.ANO+" = "+id_ano+" and "
                 +TareaContracts.TareaEntry.MES+" = "+id_mes,
                 null);
 
-        /*while(cursor.moveToNext()){
-            tarea = new Tareas();
-            tarea.setAno(cursor.getInt(1));
+        while(cursor.moveToNext()){
+            tareas = new Tareas();
+            tareas.setID_Tarea(cursor.getInt(0));
+            tareas.setTitulo(cursor.getString(1));
+            tareas.setTipo(cursor.getString(2));
+            tareas.setCantidad(cursor.getInt(3));
+            tareas.setObservaciones(cursor.getString(4));
+            tareas.setAno(cursor.getInt(5));
+            tareas.setMes(cursor.getInt(6));
+            tareas.setVina(cursor.getInt(7));
 
 
-            listaTarea.add(tarea);
+            listaTareas.add(tareas);
         }
-        obtenerLista();*/
+        obtenerLista();
 
     }
 
@@ -99,17 +107,24 @@ public class TareaActivity extends AppCompatActivity {
         listaInfo = new ArrayList<String>();
 
         for(int i = 0; i<listaTareas.size(); i++){
-            listaInfo.add("|"+listaTareas.get(i).getAno()+"|"+"\n");
+            listaInfo.add("|"+listaTareas.get(i).getTitulo()+"|"+"\n"+
+                        "   Tipo: "+listaTareas.get(i).getTipo());
+
 
         }
     }
 
-    public void onClick(View view){
-        Intent listVinas = getIntent();
-        int id_vina = listVinas.getExtras().getInt("id_vina");
+    public void onClick(View view){ ;
+        Intent listaTarea = getIntent();
+        int id_vina = listaTarea.getExtras().getInt("id_vina");
+        int id_ano = listaTarea.getExtras().getInt("id_ano");
+        int id_mes = listaTarea.getExtras().getInt("id_mes");
 
-        Intent insertAnos = new Intent(this, InsertAnos.class);
-        insertAnos.putExtra("id_vina", id_vina);
-        startActivity(insertAnos);
+        Intent insertTareas = new Intent(this, InsertTareas.class);
+        insertTareas.putExtra("id_vina", id_vina);
+        insertTareas.putExtra("id_ano", id_ano);
+        insertTareas.putExtra("id_mes", id_mes);
+
+        startActivity(insertTareas);
     }
 }

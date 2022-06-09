@@ -7,16 +7,26 @@
     android:background="@drawable/smooth"
     tools:context=".Front.VinasActivity">
 
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="4dp"
+        android:text="Viñas"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:id="@+id/ListVinas"
         style="@android:style/Widget.Holo.ListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:paddingBottom="20dp"
+        android:layout_marginTop="64dp"
         android:background="@color/list_brown"
         android:divider="@color/list_color"
         android:dividerHeight="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

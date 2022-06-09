@@ -8,15 +8,17 @@
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout-w1240dp/activity_insert_anos.xml" value="0.24866131191432397" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.162890625" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout-w936dp/activity_login.xml" value="0.13638102524866105" />
-        <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_anos.xml" value="0.18059777102330293" />
+        <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_anos.xml" value="0.33" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_insert_anos.xml" value="0.37817028985507245" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_insert_mes.xml" value="0.20153985507246377" />
+        <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_insert_tareas.xml" value="0.33" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_insert_vinas.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_login.xml" value="0.18059777102330293" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_mes.xml" value="0.20153985507246377" />
+        <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_mes.xml" value="0.22" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_scrolling.xml" value="0.18059777102330293" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_tarea.xml" value="0.18819655521783182" />
+        <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_tareas_info.xml" value="0.33" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/activity_vinas.xml" value="0.33" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/fragment_insert_vinas.xml" value="0.33" />
         <entry key="..\:/Users/Xabi/StudioProjects/VinedoDBSQLite/app/src/main/res/layout/insert_dialog_fragment.xml" value="0.3654891304347826" />

@@ -12,35 +12,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
-        android:text="Añadir viñedo"
+        android:text="Añadir tareas"
         android:textSize="40dp"
         android:textStyle="bold"
         android:translationX="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvnombre"
+        android:id="@+id/tvtit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="67dp"
         android:layout_marginTop="74dp"
-        android:text="Nombre del viñedo"
+        android:text="Título:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <EditText
-        android:id="@+id/nombreVina"
+        android:id="@+id/titular"
         android:layout_width="231dp"
         android:layout_height="43dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvnombre" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <TextView
         android:id="@+id/tvvaried"
@@ -48,19 +49,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="67dp"
         android:layout_marginTop="20dp"
-        android:text="Variedad"
+        android:text="Tipo:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreVina" />
+        app:layout_constraintTop_toBottomOf="@+id/titular" />
 
     <EditText
-        android:id="@+id/variedadVina"
+        android:id="@+id/tipo"
         android:layout_width="231dp"
         android:layout_height="43dp"
-        android:layout_marginStart="67dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="4dp"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvvaried" />
+        app:layout_constraintTop_toBottomOf="@+id/titular" />
 
     <TextView
         android:id="@+id/tvncepas"
@@ -68,64 +70,70 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="23dp"
-        android:text="Número de cepas"
+        android:text="Cantidad:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/variedadVina" />
+        app:layout_constraintTop_toBottomOf="@+id/tipo" />
 
     <EditText
-        android:id="@+id/ncepas"
-        android:layout_width="231dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="64dp"
+        android:id="@+id/cantidad"
+        android:layout_width="204dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="7dp"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvncepas" />
+        app:layout_constraintTop_toBottomOf="@+id/tipo" />
 
     <TextView
         android:id="@+id/tvextens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="37dp"
-        android:text="Extensión en metros"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:text="Observaviones"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ncepas" />
+        app:layout_constraintTop_toBottomOf="@+id/cantidad" />
 
     <EditText
-        android:id="@+id/extension"
-        android:layout_width="231dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="67dp"
+        android:id="@+id/observaciones"
+        android:layout_width="307dp"
+        android:layout_height="186dp"
+        android:layout_marginStart="64dp"
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:maxLines="10"
+        android:minLines="1"
+        android:scrollbars="vertical"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvextens" />
 
     <Button
-        android:id="@+id/insertVina"
+        android:id="@+id/updateTareas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="76dp"
         android:backgroundTint="#DC874532"
         android:onClick="onClick"
-        android:text="Añadir"
+        android:text="Guardar"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observaciones" />
 
     <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#DC874532"
         android:onClick="onClick"
         android:text="Volver"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observaciones" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
