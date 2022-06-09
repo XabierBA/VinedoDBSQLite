@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViñedoDBSQLite">
         <activity
+            android:name=".Front.MesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Insert.InsertAnos"
+            android:exported="false" />
+        <activity
             android:name=".Front.AnosActivity"
             android:exported="false" />
         <activity
@@ -17,7 +23,7 @@
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".Front.InsertVinas"
+            android:name=".Insert.InsertVinas"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

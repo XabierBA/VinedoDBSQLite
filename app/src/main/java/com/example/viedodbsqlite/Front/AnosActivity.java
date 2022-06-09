@@ -17,6 +17,7 @@ import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 import com.example.viedodbsqlite.Data.Tablas.Ano;
 import com.example.viedodbsqlite.Data.Tablas.Vina;
+import com.example.viedodbsqlite.Insert.InsertAnos;
 import com.example.viedodbsqlite.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,14 +31,16 @@ public class AnosActivity extends AppCompatActivity {
     ArrayList<Ano> listaAno;
 
 
+
     ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
 
+
     protected void onCreate(Bundle savedInstanceState){
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anos);
-
-
-
 
         listViewAnos = (ListView) findViewById(R.id.listAnos);
         FloatingActionButton insertAnos = findViewById(R.id.addAnos);
@@ -46,16 +49,20 @@ public class AnosActivity extends AppCompatActivity {
         ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaInfo);
         listViewAnos.setAdapter(adaptador);
 
+
     }
 
     private void consultarlistaAnos() {
+
+        Intent listVinas = getIntent();
+        int id_vina = listVinas.getExtras().getInt("id_vina");
+
         SQLiteDatabase db = conn.getReadableDatabase();
 
         Ano ano = null;
         listaAno = new ArrayList<Ano>();
 
-        Intent listVinas = getIntent();
-        int id_vina = listVinas.getExtras().getInt("id_vina");
+
 
         Cursor cursor = db.rawQuery("SELECT * FROM "+ AnoContracts.AnoEntry.TABLE_NAME+" WHERE "+ AnoContracts.AnoEntry.ID_VINA+" = "+id_vina, null);
 
@@ -80,10 +87,11 @@ public class AnosActivity extends AppCompatActivity {
     }
 
     public void onClick(View view){
+        Intent listVinas = getIntent();
+        int id_vina = listVinas.getExtras().getInt("id_vina");
 
-        /*Intent insertAnos = new Intent(this, InsertAnos.class);
-        startActivity(insertAnos);*/
-
+        Intent insertAnos = new Intent(this, InsertAnos.class);
+        insertAnos.putExtra("id_vina", id_vina);
+        startActivity(insertAnos);
     }
-
 }

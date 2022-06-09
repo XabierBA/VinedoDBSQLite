@@ -1,4 +1,4 @@
-package com.example.viedodbsqlite.Front;
+package com.example.viedodbsqlite.Insert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
+import com.example.viedodbsqlite.Front.VinasActivity;
 import com.example.viedodbsqlite.R;
 
 public class InsertVinas extends AppCompatActivity {
@@ -55,7 +56,7 @@ public class InsertVinas extends AppCompatActivity {
         values.put(VinaContracts.VinaEntry.N_CEPAS,ncepas.getText().toString());
 
 
-        long id = db.insert(VinaContracts.VinaEntry.TABLE_NAME, VinaContracts.VinaEntry.ID_COLUMN,values);
-        Toast.makeText(this, "Registro exitoso"+id, Toast.LENGTH_SHORT).show();
+        db.insert(VinaContracts.VinaEntry.TABLE_NAME, VinaContracts.VinaEntry.ID_COLUMN,values);
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
     }
 }

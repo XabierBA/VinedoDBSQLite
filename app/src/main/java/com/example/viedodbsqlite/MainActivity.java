@@ -39,9 +39,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.login:
                 loginUsuarios();
                 break;
+
+            case R.id.resetDB:
+                limpiarDB();
+                break;
         }
     }
-
 
     private void registrarUsuarios() {
 
@@ -55,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         values.put(UsuarioContracts.UsuarioEntry.NOMBRE,nombre.getText().toString());
         values.put(UsuarioContracts.UsuarioEntry.CONTRASEÑA,contr.getText().toString());
 
-        Long idResultante = db.insert(UsuarioContracts.UsuarioEntry.TABLE_NAME, UsuarioContracts.UsuarioEntry.ID_USER,values);
-        Toast.makeText(getApplicationContext(),"Id Registro: "+idResultante, Toast.LENGTH_SHORT).show();
+        db.insert(UsuarioContracts.UsuarioEntry.TABLE_NAME, UsuarioContracts.UsuarioEntry.ID_USER,values);
+        Toast.makeText(getApplicationContext(),"Registro exitosa", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -86,30 +89,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-   /* private void updateUsuarios(){
-
+    private void limpiarDB(){
         SQLiteDatabase db = conn.getWritableDatabase();
-
-        EditText nombre = findViewById(R.id.nombre);
-        EditText contr = findViewById(R.id.contr);
-        EditText id_update = findViewById(R.id.id_update);
-
-        String[] parametros = {id_update.getText().toString()};
-
-        ContentValues values = new ContentValues();
-        values.clear();
-        values.put(UsuarioContracts.UsuarioEntry.NOMBRE,nombre.getText().toString());
-        values.put(UsuarioContracts.UsuarioEntry.CONTRASEÑA,contr.getText().toString());
-
-        db.update(UsuarioContracts.UsuarioEntry.TABLE_NAME,values,UsuarioContracts.UsuarioEntry.ID_USER+" = ?",parametros);
-    }*/
-
-
-    /*private void limpiarUsuarios(){
-        SQLiteDatabase db = conn.getWritableDatabase();
-        conn.RESTART_TABLE_USERS(db);
+        conn.onUpgrade(db, 2, 3);
 
         int idResultante = db.delete(UsuarioContracts.UsuarioEntry.TABLE_NAME,null,null);
         Toast.makeText(getApplicationContext(),"Id Delete: "+idResultante, Toast.LENGTH_SHORT).show();
-    }*/
+    }
 }

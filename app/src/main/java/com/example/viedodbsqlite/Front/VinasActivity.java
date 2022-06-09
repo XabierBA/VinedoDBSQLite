@@ -8,14 +8,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.viedodbsqlite.Data.Contracts.VinaContracts;
 import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 import com.example.viedodbsqlite.Data.Tablas.Vina;
+import com.example.viedodbsqlite.Insert.InsertVinas;
 import com.example.viedodbsqlite.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
