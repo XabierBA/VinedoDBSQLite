@@ -35,7 +35,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class MainActivity extends AppCompatActivity {
     ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
 
-    private String key = "viñedokey4f813m908m0cr7S1u42a8p2";
+    private String key = UsuarioContracts.UsuarioEntry.ENCRIPTKEY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

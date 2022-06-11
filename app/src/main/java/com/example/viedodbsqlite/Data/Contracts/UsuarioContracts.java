@@ -7,7 +7,9 @@ public class UsuarioContracts {
     }
     public static class UsuarioEntry implements BaseColumns {
 
+        public static final String ENCRIPTKEY = "viñedokey4f813m908m0cr7S1u42a8p2";
         //Campos Constantes
+
         public static final String TABLE_NAME = "usuarios";
         public static final String ID_USER = "ID_User";
         public static final String NOMBRE = "user";

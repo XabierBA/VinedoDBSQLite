@@ -2,6 +2,8 @@ package com.example.viedodbsqlite.Data.Tablas;
 
 public class Usuario {
 
+
+
     private int ID_User;
 
     private String usuario;
