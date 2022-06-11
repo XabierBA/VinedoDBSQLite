@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+    // METODO USADO PARA REGISTRAR USUARIOS EN LA BASE DE DATOS
     private void registrarUsuarios() {
 
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nombre = findViewById(R.id.nombre);
         EditText contr = findViewById(R.id.contr);
 
-
+        // REALIZA UNA CONSULTA A LA BASE DE DATOS
         Cursor cursor = db.rawQuery("SELECT "+UsuarioContracts.UsuarioEntry.NOMBRE+", "+ UsuarioContracts.UsuarioEntry.CONTRASEÑA +" FROM "+ UsuarioContracts.UsuarioEntry.TABLE_NAME, null);
 
         while(cursor.moveToNext() && flag == false){
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    // MÉTODO PARA INICIAR SESIÓN
     private void loginUsuarios() {
 
         EditText nombre = findViewById(R.id.nombre);
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = conn.getReadableDatabase();
         boolean flag = false;
 
+        // REALIZA UNA CONSULTA A LA BASE DE DATOS
         Cursor cursor = db.rawQuery("SELECT "+UsuarioContracts.UsuarioEntry.NOMBRE+", "+ UsuarioContracts.UsuarioEntry.CONTRASEÑA +" FROM "+ UsuarioContracts.UsuarioEntry.TABLE_NAME, null);
 
 
@@ -124,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         else Toast.makeText(this, "Wrong user or password", Toast.LENGTH_SHORT).show();
     }
 
+    // MÉTODO PARA DESENCRIPTAR
     private String desencriptar(String datos, String password) throws Exception{
         SecretKeySpec secretKey = generateKey(password);
         Cipher cipher = Cipher.getInstance("AES");
@@ -134,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         return datosDesencriptadosString;
     }
 
+    // MÉTODO PARA ENCRIPTAR
     @RequiresApi(api = Build.VERSION_CODES.O)
     private String encriptar(String datos, String password) throws Exception{
         SecretKey secretKey = generateKey(password);
@@ -144,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         return datosEncriptadosString;
     }
 
+    // MÉTODO PARA GENERAR LA KEY
     private SecretKeySpec generateKey(String password) throws Exception{
         MessageDigest sha = MessageDigest.getInstance("SHA-256");
         byte[] key = password.getBytes("UTF-8");
