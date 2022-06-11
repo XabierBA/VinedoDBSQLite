@@ -50,14 +50,22 @@ public class InsertAnos extends AppCompatActivity {
         switch (view.getId()){
             case R.id.insertAnos:
                 insertAnos();
-                break;
-
-            case R.id.cancel:
 
                 Intent listVinas = getIntent();
                 int id_vina = listVinas.getExtras().getInt("id_vina");
 
                 Intent listaAnos = new Intent(this, AnosActivity.class);
+                listaAnos.putExtra("id_vina", id_vina);
+                startActivity(listaAnos);
+
+                break;
+
+            case R.id.cancel:
+
+                listVinas = getIntent();
+                id_vina = listVinas.getExtras().getInt("id_vina");
+
+                listaAnos = new Intent(this, AnosActivity.class);
                 listaAnos.putExtra("id_vina", id_vina);
                 startActivity(listaAnos);
                 break;

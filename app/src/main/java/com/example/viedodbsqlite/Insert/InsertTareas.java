@@ -42,10 +42,29 @@ public class InsertTareas extends AppCompatActivity {
         switch (view.getId()){
             case R.id.insertTareas:
                 insertTareas();
+
+                Intent listaTarea = getIntent();
+                int id_vina = listaTarea.getExtras().getInt("id_vina");
+                int id_ano = listaTarea.getExtras().getInt("id_ano");
+                int id_mes = listaTarea.getExtras().getInt("id_mes");
+
+                Intent listaTareas = new Intent(this, TareaActivity.class);
+                listaTareas.putExtra("id_vina", id_vina);
+                listaTareas.putExtra("id_ano", id_ano);
+                listaTareas.putExtra("id_mes", id_mes);
+                startActivity(listaTareas);
                 break;
 
             case R.id.cancel:
-                Intent listaTareas = new Intent(this, TareaActivity.class);
+                listaTarea = getIntent();
+                id_vina = listaTarea.getExtras().getInt("id_vina");
+                id_ano = listaTarea.getExtras().getInt("id_ano");
+                id_mes = listaTarea.getExtras().getInt("id_mes");
+
+                listaTareas = new Intent(this, TareaActivity.class);
+                listaTareas.putExtra("id_vina", id_vina);
+                listaTareas.putExtra("id_ano", id_ano);
+                listaTareas.putExtra("id_mes", id_mes);
                 startActivity(listaTareas);
                 break;
         }

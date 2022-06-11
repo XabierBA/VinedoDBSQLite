@@ -31,10 +31,13 @@ public class InsertVinas extends AppCompatActivity {
         switch (view.getId()){
             case R.id.insertVina:
                 insertVinas();
+
+                Intent listaViñas = new Intent(this, VinasActivity.class);
+                startActivity(listaViñas);
                 break;
 
             case R.id.cancel:
-                Intent listaViñas = new Intent(this, VinasActivity.class);
+                listaViñas = new Intent(this, VinasActivity.class);
                 startActivity(listaViñas);
                 break;
         }

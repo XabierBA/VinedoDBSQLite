@@ -42,7 +42,7 @@ public class TareaActivity extends AppCompatActivity {
 
         listViewTareas = (ListView) findViewById(R.id.listTarea);
         FloatingActionButton insertTareas = findViewById(R.id.addTarea);
-        consultarlistaAnos();
+        consultarlistaTareas();
 
         ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaInfo);
         listViewTareas.setAdapter(adaptador);
@@ -66,7 +66,7 @@ public class TareaActivity extends AppCompatActivity {
         });
     }
 
-    private void consultarlistaAnos() {
+    private void consultarlistaTareas() {
 
         Intent listaTarea = getIntent();
         int id_vina = listaTarea.getExtras().getInt("id_vina");
