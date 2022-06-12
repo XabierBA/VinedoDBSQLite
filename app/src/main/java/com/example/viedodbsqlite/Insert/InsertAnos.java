@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Set;
 
 public class InsertAnos extends AppCompatActivity {
-    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
+    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,3);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

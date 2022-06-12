@@ -114,17 +114,31 @@ public class TareaActivity extends AppCompatActivity {
         }
     }
 
-    public void onClick(View view){ ;
-        Intent listaTarea = getIntent();
-        int id_vina = listaTarea.getExtras().getInt("id_vina");
-        int id_ano = listaTarea.getExtras().getInt("id_ano");
-        int id_mes = listaTarea.getExtras().getInt("id_mes");
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.addTarea:
+                Intent listaTarea = getIntent();
+                int id_vina = listaTarea.getExtras().getInt("id_vina");
+                int id_ano = listaTarea.getExtras().getInt("id_ano");
+                int id_mes = listaTarea.getExtras().getInt("id_mes");
 
-        Intent insertTareas = new Intent(this, InsertTareas.class);
-        insertTareas.putExtra("id_vina", id_vina);
-        insertTareas.putExtra("id_ano", id_ano);
-        insertTareas.putExtra("id_mes", id_mes);
+                Intent insertTareas = new Intent(this, InsertTareas.class);
+                insertTareas.putExtra("id_vina", id_vina);
+                insertTareas.putExtra("id_ano", id_ano);
+                insertTareas.putExtra("id_mes", id_mes);
 
-        startActivity(insertTareas);
+                startActivity(insertTareas);
+
+            case R.id.volver:
+                Intent volverGet = getIntent();
+                id_vina = volverGet.getExtras().getInt("id_vina");
+                id_ano = volverGet.getExtras().getInt("id_ano");
+
+                Intent volverSet = new Intent(this, AnosActivity.class);
+                volverSet.putExtra("id_vina", id_vina);
+                //volverSet.putExtra("id_ano", id_ano);
+                startActivity(volverSet);
+                break;
+        }
     }
 }

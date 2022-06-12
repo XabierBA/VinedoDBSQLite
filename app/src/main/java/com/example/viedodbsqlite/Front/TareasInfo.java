@@ -67,7 +67,7 @@ public class TareasInfo extends AppCompatActivity {
         }
         titulo.setText(tareas.getTitulo());
         tipo.setText(tareas.getTipo());
-        //cantidad.setText(tareas.getCantidad());
+        cantidad.setText(String.valueOf(tareas.getCantidad()));
         observ.setText(tareas.getObservaciones());
     }
 

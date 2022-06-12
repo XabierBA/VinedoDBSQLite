@@ -19,6 +19,7 @@ import com.example.viedodbsqlite.Data.DB.ConexiónSQLite;
 import com.example.viedodbsqlite.Data.Tablas.Ano;
 import com.example.viedodbsqlite.Data.Tablas.Vina;
 import com.example.viedodbsqlite.Insert.InsertAnos;
+import com.example.viedodbsqlite.Insert.InsertTareas;
 import com.example.viedodbsqlite.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -103,12 +104,19 @@ public class AnosActivity extends AppCompatActivity {
     }
 
     public void onClick(View view){
-        Intent listVinas = getIntent();
-        int id_vina = listVinas.getExtras().getInt("id_vina");
+        switch (view.getId()){
+            case R.id.addTarea:
+                Intent listVinas = getIntent();
+                int id_vina = listVinas.getExtras().getInt("id_vina");
 
+                Intent insertAnos = new Intent(this, InsertAnos.class);
+                insertAnos.putExtra("id_vina", id_vina);
+                startActivity(insertAnos);
 
-        Intent insertAnos = new Intent(this, InsertAnos.class);
-        insertAnos.putExtra("id_vina", id_vina);
-        startActivity(insertAnos);
+            case R.id.volver:
+                Intent volverSet = new Intent(this, VinasActivity.class);
+                startActivity(volverSet);
+                break;
+        }
     }
 }
