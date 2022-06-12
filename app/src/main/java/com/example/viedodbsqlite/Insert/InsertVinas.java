@@ -17,7 +17,7 @@ import com.example.viedodbsqlite.Front.VinasActivity;
 import com.example.viedodbsqlite.R;
 
 public class InsertVinas extends AppCompatActivity {
-    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
+    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,3);
 
 
     @Override
