@@ -33,7 +33,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 //PIXEL 4 API 30 || Android 11.0 Google Play | x86
 public class MainActivity extends AppCompatActivity {
-    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
+    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,3);
+
 
     private String key = UsuarioContracts.UsuarioEntry.ENCRIPTKEY;
 

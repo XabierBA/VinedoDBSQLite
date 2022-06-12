@@ -33,7 +33,7 @@ public class AnosActivity extends AppCompatActivity {
 
 
 
-    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
+    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,3);
 
 
     protected void onCreate(Bundle savedInstanceState){

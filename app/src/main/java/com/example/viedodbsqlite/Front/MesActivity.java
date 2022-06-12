@@ -30,7 +30,7 @@ public class MesActivity extends AppCompatActivity {
     ArrayList<String> listaInfo;
     ArrayList<Mes> listaMes;
 
-    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
+    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,3);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

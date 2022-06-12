@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class TareasInfo extends AppCompatActivity {
 
     ArrayList<Tareas> listaTareas;
-    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,2);
+    ConexiónSQLite conn = new ConexiónSQLite(this, "db_vinedo", null,3);
 
     protected void onCreate(Bundle savedInstanceState){
 
