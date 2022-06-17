@@ -128,6 +128,7 @@ public class TareaActivity extends AppCompatActivity {
                 insertTareas.putExtra("id_mes", id_mes);
 
                 startActivity(insertTareas);
+                break;
 
             case R.id.volver:
                 Intent volverGet = getIntent();

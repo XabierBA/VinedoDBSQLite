@@ -105,13 +105,14 @@ public class AnosActivity extends AppCompatActivity {
 
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.addTarea:
+            case R.id.addAnos:
                 Intent listVinas = getIntent();
                 int id_vina = listVinas.getExtras().getInt("id_vina");
 
                 Intent insertAnos = new Intent(this, InsertAnos.class);
                 insertAnos.putExtra("id_vina", id_vina);
                 startActivity(insertAnos);
+                break;
 
             case R.id.volver:
                 Intent volverSet = new Intent(this, VinasActivity.class);
